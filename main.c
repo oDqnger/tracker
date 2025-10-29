@@ -4,12 +4,16 @@
 #include <string.h>
 #include <unistd.h>
 
+// edit these paths by adding in the file location in the ""
+#define FILE_LOC "" // file location to store the time spent for a session
+#define FILE_LOC_1 "" // file location for storing the total amount o f time spent in ur computer.
+
 int main() {
   struct timeval t1, t2;
   int elapsedTime = 0;
   char s[20];
   int prev;
-  FILE *fptr = fopen("./time.txt", "r");
+  FILE *fptr = fopen(FILE_LOC, "r");
   if (fptr == NULL) {
     printf("ERROR: cannot open file\n");
     return 1;
@@ -19,7 +23,7 @@ int main() {
   fgets(data, 20, fptr);
   fclose(fptr);
 
-  FILE *fptr2 = fopen("./time_history.txt", "a");
+  FILE *fptr2 = fopen(FILE_LOC_1, "a");
   if (fptr2 == NULL) {
     printf("ERROR: cannot open file\n");
     return 1;
@@ -37,7 +41,7 @@ int main() {
     if (elapsedTime % 60 == 0) {
       if (prev != elapsedTime) {
         prev = elapsedTime;
-        fptr = fopen("./time.txt", "w");
+        fptr = fopen(FILE_LOC, "w");
 
         if (fptr == NULL) {
           printf("ERROR: cannot open file\n");
