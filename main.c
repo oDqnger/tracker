@@ -5,8 +5,10 @@
 #include <unistd.h>
 
 // edit these paths by adding in the file location in the ""
-#define FILE_LOC "" // file location to store the time spent for a session
-#define FILE_LOC_1 "" // file location for storing the total amount o f time spent in ur computer.
+#define FILE_LOC ""
+// file location to store the time spent for a session
+#define FILE_LOC_1 ""
+// file location for storing the total amount o f time spent in ur computer.
 
 int main() {
   struct timeval t1, t2;
